@@ -1,0 +1,98 @@
+import { useState } from "react";
+
+import {
+  type GameTheme,
+  type GridSizes as TGridSizes,
+  type NumPlayers as TNumPlayers,
+} from "../../types";
+
+import { GameThemes, GridSizes, NumPlayers } from "../../enums";
+
+import TitleSection from "./TitleSection";
+
+import { ButtonMenuSelection, ButtonPrimary } from "../Buttons";
+
+const NUM_PLAYERS_BUTTONS = [
+  NumPlayers.One,
+  NumPlayers.Two,
+  NumPlayers.Three,
+  NumPlayers.Four,
+];
+
+const MainMenu = () => {
+  const [themeSelected, setThemeSelected] = useState<GameTheme>(
+    GameThemes.Numbers
+  );
+  const [playersSelected, setPlayersSelected] = useState<NumPlayers>(
+    NumPlayers.One
+  );
+  const [gridSelected, setGridSelected] = useState<TGridSizes>(GridSizes.Small);
+
+  const handleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setThemeSelected(e.currentTarget.value as GameTheme);
+  };
+
+  const handlePlayers = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setPlayersSelected(e.currentTarget.value as TNumPlayers);
+  };
+
+  const handleGrid = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setGridSelected(e.currentTarget.value as TGridSizes);
+  };
+
+  return (
+    <div className="flex flex-col gap-6">
+      <section className="flex flex-col gap-2">
+        <TitleSection text="Select Theme" />
+        <div className="grid grid-cols-2 gap-x-3">
+          <ButtonMenuSelection
+            value={GameThemes.Numbers}
+            onClick={handleTheme}
+            active={themeSelected === GameThemes.Numbers}
+            text={GameThemes.Numbers}
+          />
+          <ButtonMenuSelection
+            value={GameThemes.Icons}
+            onClick={handleTheme}
+            active={themeSelected === GameThemes.Icons}
+            text={GameThemes.Icons}
+          />
+        </div>
+      </section>
+      <section className="flex flex-col gap-2">
+        <TitleSection text="Number of Players" />
+        <div className="grid grid-cols-4 gap-x-3">
+          {NUM_PLAYERS_BUTTONS.map((numButton) => (
+            <ButtonMenuSelection
+              key={numButton}
+              value={numButton}
+              onClick={handlePlayers}
+              active={playersSelected === numButton}
+              text={numButton}
+            />
+          ))}
+        </div>
+      </section>
+      <section className="flex flex-col gap-2">
+        <TitleSection text="Grid Size" />
+        <div className="grid grid-cols-2 gap-x-3">
+          <ButtonMenuSelection
+            value={GridSizes.Small}
+            onClick={handleGrid}
+            active={gridSelected === GridSizes.Small}
+            text={GridSizes.Small}
+          />
+          <ButtonMenuSelection
+            value={GridSizes.Big}
+            onClick={handleGrid}
+            active={gridSelected === GridSizes.Big}
+            text={GridSizes.Big}
+          />
+        </div>
+      </section>
+      <ButtonPrimary text="Start Game" />
+    </div>
+  );
+};
+
+export default MainMenu;

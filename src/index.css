@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Atkinson;
+  src: url(./assets/fonts/AtkinsonHyperlegible-Bold.ttf);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
