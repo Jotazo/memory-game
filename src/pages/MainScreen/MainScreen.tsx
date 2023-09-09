@@ -1,5 +1,5 @@
-import MainMenu from "../components/MainMenu/MainMenu";
-import CardLayout from "../layouts/CardLayout";
+import MainMenu from "./MainMenu/MainMenu";
+import CardLayout from "../../layouts/CardLayout";
 
 const MainScreen = () => {
   return (

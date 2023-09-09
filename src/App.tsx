@@ -1,9 +1,10 @@
-import MainScreen from "./pages/MainScreen";
+import { MainScreen, GameScreen } from "./pages";
 
 function App() {
   return (
     <div className="font-atkinson h-screen">
-      <MainScreen />
+      {/* <MainScreen /> */}
+      <GameScreen />
     </div>
   );
 }
