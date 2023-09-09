@@ -1,44 +1,22 @@
-import { useState } from "react";
+import { useGameConfigStore } from "../../store/GameConfigStore";
 
-import {
-  type GameTheme,
-  type GridSizes as TGridSizes,
-  type NumPlayers as TNumPlayers,
-} from "../../types";
+import { GameThemes, GridSizes } from "../../enums";
 
-import { GameThemes, GridSizes, NumPlayers } from "../../enums";
+import { NUM_PLAYERS_BUTTONS } from "../../constants";
 
 import TitleSection from "./TitleSection";
 
 import { ButtonMenuSelection, ButtonPrimary } from "../Buttons";
 
-const NUM_PLAYERS_BUTTONS = [
-  NumPlayers.One,
-  NumPlayers.Two,
-  NumPlayers.Three,
-  NumPlayers.Four,
-];
-
 const MainMenu = () => {
-  const [themeSelected, setThemeSelected] = useState<GameTheme>(
-    GameThemes.Numbers
-  );
-  const [playersSelected, setPlayersSelected] = useState<NumPlayers>(
-    NumPlayers.One
-  );
-  const [gridSelected, setGridSelected] = useState<TGridSizes>(GridSizes.Small);
-
-  const handleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setThemeSelected(e.currentTarget.value as GameTheme);
-  };
-
-  const handlePlayers = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setPlayersSelected(e.currentTarget.value as TNumPlayers);
-  };
-
-  const handleGrid = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setGridSelected(e.currentTarget.value as TGridSizes);
-  };
+  const {
+    themeSelected,
+    playersSelected,
+    gridSelected,
+    handleTheme,
+    handlePlayers,
+    handleGrid,
+  } = useGameConfigStore((state) => state);
 
   return (
     <div className="flex flex-col gap-6">
