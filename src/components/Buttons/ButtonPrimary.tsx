@@ -8,13 +8,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
 }
 
-const ButtonPrimary: React.FC<ButtonProps> = ({ text, fit, classStyles }) => {
+const ButtonPrimary: React.FC<ButtonProps> = ({
+  text,
+  fit,
+  classStyles,
+  ...props
+}) => {
   const primaryStyles = "bg-orange hover:bg-[#FFB84A] text-softWhite";
   return (
     <Button
       text={text}
       fit={fit}
       classStyles={`${primaryStyles} ${classStyles}`}
+      {...props}
     />
   );
 };
