@@ -12,8 +12,9 @@ const ButtonMenuSelection: React.FC<ButtonProps> = ({
   active = false,
   ...props
 }) => {
-  const colorStyles =
-    "active:bg-charcoal hover:bg-silverLakeBlue bg-lightPeriwinkle text-softWhite";
+  const activeBg = active ? "bg-charcoal" : "bg-lightPeriwinkle";
+
+  const colorStyles = `${activeBg} active:bg-charcoal hover:bg-silverLakeBlue text-softWhite`;
 
   return (
     <Button
