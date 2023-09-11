@@ -6,7 +6,10 @@ import { NUM_PLAYERS_BUTTONS } from "../../../constants";
 
 import TitleSection from "./TitleSection";
 
-import { ButtonMenuSelection, ButtonPrimary } from "../../../components/Buttons";
+import {
+  ButtonMenuSelection,
+  ButtonPrimary,
+} from "../../../components/Buttons";
 
 const MainMenu = () => {
   const {
