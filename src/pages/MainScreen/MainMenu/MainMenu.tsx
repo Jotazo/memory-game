@@ -1,5 +1,3 @@
-import { useGameConfigStore } from "../../../store/GameConfigStore";
-
 import { GameThemes, GridSizes } from "../../../enums";
 
 import { NUM_PLAYERS_BUTTONS } from "../../../constants";
@@ -11,6 +9,9 @@ import {
   ButtonPrimary,
 } from "../../../components/Buttons";
 
+import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
+
+// const MainMenu = ({ startGame }: { startGame: () => void }) => {
 const MainMenu = () => {
   const {
     themeSelected,
@@ -19,7 +20,8 @@ const MainMenu = () => {
     handleTheme,
     handlePlayers,
     handleGrid,
-  } = useGameConfigStore((state) => state);
+    startGame,
+  } = useMemoryGameStore((state) => state);
 
   return (
     <div className="flex flex-col gap-6">
@@ -71,7 +73,7 @@ const MainMenu = () => {
           />
         </div>
       </section>
-      <ButtonPrimary text="Start Game" />
+      <ButtonPrimary onClick={startGame} text="Start Game" />
     </div>
   );
 };
