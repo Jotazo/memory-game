@@ -8,9 +8,11 @@ import Grid from "./Grid/Grid";
 import Footer from "./Footer/Footer";
 
 const GameScreen = () => {
+  const startTimer = useMemoryGameStore((state) => state.startTimer);
   const stopTimer = useMemoryGameStore((state) => state.stopTimer);
 
   useEffect(() => {
+    startTimer();
     return () => stopTimer();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

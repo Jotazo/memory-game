@@ -14,6 +14,7 @@ export interface GameSoloSlice {
   startGame: () => void;
   moves: number;
   addMoves: () => void;
+  returnToMainMenu: () => void;
 }
 
 export interface ShowModalsSlice {
@@ -29,6 +30,7 @@ export interface TimerSlice {
   startTimer: () => void;
   stopTimer: () => void;
   setStringTimer: () => void;
+  resetTimer: () => void;
 }
 
 export type StoreSlices = GameConfigSlice &

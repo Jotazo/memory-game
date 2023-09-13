@@ -19,6 +19,9 @@ const createGameSoloSlice: StateCreator<StoreSlices, [], [], GameSoloSlice> = (
     startGame() {
       set({ gameStarted: true });
     },
+    returnToMainMenu() {
+      set({ gameStarted: false });
+    },
   };
 };
 

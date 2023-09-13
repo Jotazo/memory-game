@@ -40,6 +40,9 @@ const createTimerSlice: StateCreator<StoreSlices, [], [], TimerSlice> = (
       const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
       set({ stringTimer: `${formattedMinutes}:${formattedSeconds}` });
     },
+    resetTimer() {
+      set(initialState);
+    },
   };
 };
 
