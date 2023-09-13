@@ -4,7 +4,7 @@ import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
 
 import { MemoryItem } from "../../../interfaces/MemoryItem";
 import { MemoryBoard } from "../../../types";
-import { GameThemes, GridSizes } from "../../../enums";
+import { GameThemes, GridSizes, Modals } from "../../../enums";
 
 import {
   checkHasPairClicked,
@@ -12,6 +12,7 @@ import {
   getFoundedItem,
   getMemoryGame,
   handleItemsMatched,
+  isGameFinish,
 } from "../../../helpers";
 
 import GridItem from "./GridItem";
@@ -19,6 +20,8 @@ import GridItem from "./GridItem";
 const Grid = () => {
   const sizeSelected = useMemoryGameStore((state) => state.gridSelected);
   const addMoves = useMemoryGameStore((state) => state.addMoves);
+  const showModal = useMemoryGameStore((state) => state.showModal);
+  const stopTimer = useMemoryGameStore((state) => state.stopTimer);
 
   const [isPairHandled, setIsPairHandled] = useState(false);
   const [memoryGame, setMemoryGame] = useState<MemoryBoard>(
@@ -61,6 +64,10 @@ const Grid = () => {
         handleItemsMatched(memoryGame, memoryGameUpdated);
         addMoves();
         setIsPairHandled(true);
+        if (isGameFinish(memoryGameUpdated)) {
+          stopTimer();
+          showModal(Modals.GameSolo);
+        }
       }, 500);
     }
 
