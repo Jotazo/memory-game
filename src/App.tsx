@@ -2,6 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { MainScreen, GameScreen } from "./pages";
 import { useMemoryGameStore } from "./store/useMemoryGameStore";
 import EndGameSolo from "./components/Modals/EndGameSolo";
+import Modal from "./components/Modal";
 
 function App() {
   const gameStarted = useMemoryGameStore((state) => state.gameStarted);
@@ -12,7 +13,9 @@ function App() {
         {/* <MainScreen /> */}
         <GameScreen />
       </AnimatePresence>
-      <EndGameSolo />
+      <Modal>
+        <EndGameSolo />
+      </Modal>
     </div>
   );
 }
