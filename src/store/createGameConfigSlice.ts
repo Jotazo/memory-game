@@ -32,6 +32,9 @@ const createGameConfigSlice: StateCreator<
   handleGrid(e) {
     set({ gridSelected: e.currentTarget.value as TGridSizes });
   },
+  resetConfig() {
+    set(initialState);
+  },
 });
 
 export default createGameConfigSlice;

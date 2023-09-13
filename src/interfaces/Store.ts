@@ -7,6 +7,7 @@ export interface GameConfigSlice {
   handleTheme: (e: React.MouseEvent<HTMLButtonElement>) => void;
   handlePlayers: (e: React.MouseEvent<HTMLButtonElement>) => void;
   handleGrid: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  resetConfig: () => void;
 }
 
 export interface GameSoloSlice {

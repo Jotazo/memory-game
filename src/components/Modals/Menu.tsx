@@ -6,6 +6,7 @@ const Menu = () => {
   const hideModal = useMemoryGameStore((state) => state.hideModal);
   const startTimer = useMemoryGameStore((state) => state.startTimer);
   const resetTimer = useMemoryGameStore((state) => state.resetTimer);
+  const resetConfig = useMemoryGameStore((state) => state.resetConfig);
   const returnToMainMenu = useMemoryGameStore(
     (state) => state.returnToMainMenu
   );
@@ -20,6 +21,7 @@ const Menu = () => {
   const onReturnToMainMenu = () => {
     hideModal();
     returnToMainMenu();
+    resetConfig();
     resetTimer();
   };
 

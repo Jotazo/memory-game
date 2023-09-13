@@ -20,7 +20,7 @@ const createGameSoloSlice: StateCreator<StoreSlices, [], [], GameSoloSlice> = (
       set({ gameStarted: true });
     },
     returnToMainMenu() {
-      set({ gameStarted: false });
+      set(initialState);
     },
   };
 };
