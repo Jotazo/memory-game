@@ -75,10 +75,10 @@ const Grid = () => {
     setMemoryGame(memoryGameUpdated);
   };
 
+  const gridCols = sizeSelected[0] === "4" ? "grid-cols-4" : "grid-cols-6"; // Fix 6x6 grid
+
   return (
-    <main
-      className={`grid grid-cols-${sizeSelected[0]} gap-2 w-full max-w-[440px]`}
-    >
+    <main className={`grid ${gridCols} gap-2 w-full max-w-[440px]`}>
       {memoryGame.map((row) =>
         row.map(({ element, isClicked, isPaired, id }) => {
           const showChildren = isClicked || isPaired;
