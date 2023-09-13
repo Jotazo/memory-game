@@ -4,7 +4,8 @@ import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
 
 import { MemoryItem } from "../../../interfaces/MemoryItem";
 import { MemoryBoard } from "../../../types";
-import { GameThemes, GridSizes, Modals } from "../../../enums";
+// import { GameThemes, GridSizes, Modals } from "../../../enums"; // Build fix
+import { GridSizes, Modals } from "../../../enums";
 
 import {
   checkHasPairClicked,
@@ -25,7 +26,8 @@ const Grid = () => {
 
   const [isPairHandled, setIsPairHandled] = useState(false);
   const [memoryGame, setMemoryGame] = useState<MemoryBoard>(
-    getMemoryGame(sizeSelected, GameThemes.Numbers)
+    // getMemoryGame(sizeSelected, GameThemes.Numbers) Build fix
+    getMemoryGame(sizeSelected)
   );
 
   useEffect(() => {
