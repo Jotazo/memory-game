@@ -1,4 +1,4 @@
-import { GameTheme, NumPlayers, GridSizes } from "../types";
+import { GameTheme, NumPlayers, GridSizes, Modals } from "../types";
 
 export interface GameConfigSlice {
   themeSelected: GameTheme;
@@ -22,4 +22,10 @@ export interface GameSoloSlice {
   setStringTimer: () => void;
 }
 
-export type StoreSlices = GameConfigSlice & GameSoloSlice;
+export interface ShowModalsSlice {
+  modalToShow: Modals;
+  showModal: (modal: Modals) => void;
+  hideModal: () => void;
+}
+
+export type StoreSlices = GameConfigSlice & GameSoloSlice & ShowModalsSlice;

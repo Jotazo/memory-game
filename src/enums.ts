@@ -15,3 +15,9 @@ export enum GridSizes {
   Small = "4x4",
   Big = "6x6",
 }
+
+export enum Modals {
+  Menu = "Menu",
+  GameSolo = "GameSolo",
+  GameMulti = "GameMulti",
+}

@@ -1,4 +1,4 @@
-import { GameThemes, NumPlayers, GridSizes } from "./enums";
+import { GameThemes, NumPlayers, GridSizes, Modals } from "./enums";
 import { MemoryItem } from "./interfaces/MemoryItem";
 
 /* GAME CONFIG */
@@ -11,6 +11,8 @@ export type NumPlayers =
   | NumPlayers.Four;
 
 export type GridSizes = GridSizes.Small | GridSizes.Big;
+
+export type Modals = Modals.Menu | Modals.GameSolo | Modals.GameMulti | null;
 
 /* GAMEBOARD */
 export type MemoryBoard = MemoryItem[][];
