@@ -14,12 +14,6 @@ export interface GameSoloSlice {
   startGame: () => void;
   moves: number;
   addMoves: () => void;
-  timer: { seconds: number; minutes: number };
-  timerId: number | null;
-  stringTimer: string;
-  startTimer: () => void;
-  stopTimer: () => void;
-  setStringTimer: () => void;
 }
 
 export interface ShowModalsSlice {
@@ -28,4 +22,16 @@ export interface ShowModalsSlice {
   hideModal: () => void;
 }
 
-export type StoreSlices = GameConfigSlice & GameSoloSlice & ShowModalsSlice;
+export interface TimerSlice {
+  timer: { seconds: number; minutes: number };
+  timerId: number | null;
+  stringTimer: string;
+  startTimer: () => void;
+  stopTimer: () => void;
+  setStringTimer: () => void;
+}
+
+export type StoreSlices = GameConfigSlice &
+  GameSoloSlice &
+  ShowModalsSlice &
+  TimerSlice;
