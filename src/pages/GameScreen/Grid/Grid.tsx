@@ -72,7 +72,6 @@ const Grid = () => {
         }
       }, 500);
     }
-
     setMemoryGame(memoryGameUpdated);
   };
 
