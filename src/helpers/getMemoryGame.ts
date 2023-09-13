@@ -1,11 +1,10 @@
 import { MemoryItem } from "../interfaces/MemoryItem";
-import { GameTheme, MemoryBoard, GridSizes as TGridSizes } from "../types";
+import { MemoryBoard, GridSizes as TGridSizes } from "../types";
 
 import getRandomMemoryItems from "./getRandomMemoryItems";
 
 const getMemoryGame = (
   gridSize: TGridSizes,
-  gameType: GameTheme
 ): MemoryItem[][] => {
   const randomMemoryItems: MemoryItem[] = getRandomMemoryItems(gridSize);
   shuffleMemoryItems(randomMemoryItems);
