@@ -7,7 +7,6 @@ import { getMemoryGame, handleItemsMatched, isGameFinish } from "../helpers";
 import { Modals } from "../enums";
 
 const initialState = {
-  boardRestarted: false,
   board: [],
   itemsClicked: [],
   pairHandled: false,
@@ -22,7 +21,7 @@ const createBoardGameSlice: StateCreator<
   return {
     ...initialState,
     getNewMemoryGame() {
-      set({ board: getMemoryGame(get().gridSelected, get().themeSelected) });
+      set({ ...initialState, board: getMemoryGame(get().gridSelected, get().themeSelected) });
     },
     onItemClicked(itemClicked) {
       const itemsClicked = get().itemsClicked.length;

@@ -9,7 +9,6 @@ import {
 import { MemoryItem } from "./MemoryItem";
 
 export interface BoardGameSlice {
-  boardRestarted: boolean;
   board: MemoryBoard;
   itemsClicked: MemoryItem[];
   pairHandled: boolean;
