@@ -22,8 +22,7 @@ const createBoardGameSlice: StateCreator<
   return {
     ...initialState,
     getNewMemoryGame() {
-      const gridSizeSelected = get().gridSelected;
-      set({ board: getMemoryGame(gridSizeSelected) });
+      set({ board: getMemoryGame(get().gridSelected, get().themeSelected) });
     },
     onItemClicked(itemClicked) {
       const itemsClicked = get().itemsClicked.length;
