@@ -1,6 +1,8 @@
-import { GridSizes } from "../enums";
-import { GridSizes as TGridSizes } from "../types";
+import { GameThemes, GridSizes } from "../enums";
+import { GameTheme, GridSizes as TGridSizes } from "../types";
 import { MemoryItem } from "../interfaces/MemoryItem";
+
+import ICONS from "../components/icons/iconsArr";
 
 const GRID_LIMIT = {
   [GridSizes.Small]: 8,
@@ -9,7 +11,7 @@ const GRID_LIMIT = {
 
 const RANDOM_LIMIT = 20;
 
-const getRandomMemoryItems = (gridSize: TGridSizes) => {
+const getRandomMemoryItems = (gridSize: TGridSizes, gameType: GameTheme) => {
   const randomPairedValues: number[] = [];
   const randomMemoryItems: MemoryItem[] = [];
   for (let i = 0; i < GRID_LIMIT[gridSize]; i++) {
@@ -18,6 +20,12 @@ const getRandomMemoryItems = (gridSize: TGridSizes) => {
     const [memoryItemOne, memoryItemTwo]: MemoryItem[] =
       getMemoryItems(randomValue);
     randomPairedValues.push(randomValue);
+
+    if (gameType === GameThemes.Icons) {
+      memoryItemOne.element = ICONS[i];
+      memoryItemTwo.element = ICONS[i];
+    }
+
     randomMemoryItems.push(memoryItemOne);
     randomMemoryItems.push(memoryItemTwo);
   }

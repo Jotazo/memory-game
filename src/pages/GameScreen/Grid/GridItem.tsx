@@ -1,3 +1,7 @@
+import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
+
+import { GameThemes, GridSizes } from "../../../enums";
+
 interface Props {
   children: React.ReactNode;
   handleClickItem: () => void;
@@ -11,6 +15,19 @@ const GridItem: React.FC<Props> = ({
   isClicked,
   isPaired,
 }) => {
+  const themeSelected = useMemoryGameStore((state) => state.themeSelected);
+  const gridSelected = useMemoryGameStore((state) => state.gridSelected);
+
+  const isSmallIcons =
+    themeSelected === GameThemes.Icons && gridSelected === GridSizes.Small;
+
+  const customPadding =
+    themeSelected === GameThemes.Numbers
+      ? "p-2"
+      : isSmallIcons
+      ? "p-3"
+      : "px-3";
+
   const circleBg = isClicked
     ? "bg-orange"
     : isPaired
@@ -20,7 +37,7 @@ const GridItem: React.FC<Props> = ({
   return (
     <span
       onClick={handleClickItem}
-      className={`${circleBg} transition duration-300 text-center rounded-full p-2`}
+      className={`${circleBg} transition duration-300 text-center rounded-full ${customPadding}`}
     >
       {children}
     </span>

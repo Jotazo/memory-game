@@ -18,10 +18,11 @@ const Grid = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pairHandled]);
 
-  const gridCols = sizeSelected[0] === "4" ? "grid-cols-4" : "grid-cols-6"; // Fix 6x6 grid
+  const gridCols =
+    sizeSelected === GridSizes.Small ? "grid-cols-4" : "grid-cols-6"; // Fix 6x6 grid
 
   return (
-    <main className={`grid ${gridCols} gap-2 w-full max-w-[440px]`}>
+    <main className={`grid ${gridCols} gap-1 w-full max-w-[440px]`}>
       {memoryGame.map((row) => {
         return row.map((item) => {
           const showChildren = item.isClicked || item.isPaired;
