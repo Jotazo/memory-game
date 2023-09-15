@@ -1,0 +1,10 @@
+export { default as AnchorIcon } from "./AnchorIcon";
+export { default as BallIcon } from "./BallIcon";
+export { default as CarIcon } from "./CarIcon";
+export { default as ChemistBottleIcon } from "./ChemistBottleIcon";
+export { default as HalfMoonIcon } from "./HalfMoonIcon";
+export { default as LadyBugIcon } from "./LadyBugIcon";
+export { default as LiraSignIcon } from "./LiraSignIcon";
+export { default as SnowFlakeIcon } from "./SnowFlakeIcon";
+export { default as SpockHandIcon } from "./SpockHandIcon";
+export { default as SunIcon } from "./SunIcon";
