@@ -43,6 +43,7 @@ const getMemoryItem = (randomValue: number): MemoryItem => ({
   isClicked: false,
   isPaired: false,
   pairedValue: randomValue,
+  position: [0, 0],
 });
 
 export default getRandomMemoryItems;

@@ -11,7 +11,6 @@ import {
 
 import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
 
-// const MainMenu = ({ startGame }: { startGame: () => void }) => {
 const MainMenu = () => {
   const {
     themeSelected,
@@ -20,7 +19,7 @@ const MainMenu = () => {
     handleTheme,
     handlePlayers,
     handleGrid,
-    startGame,
+    onStartNewGame,
   } = useMemoryGameStore((state) => state);
 
   return (
@@ -73,7 +72,7 @@ const MainMenu = () => {
           />
         </div>
       </section>
-      <ButtonPrimary onClick={startGame} text="Start Game" />
+      <ButtonPrimary onClick={onStartNewGame} text="Start Game" />
     </div>
   );
 };

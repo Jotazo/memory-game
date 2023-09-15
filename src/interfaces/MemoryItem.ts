@@ -1,7 +1,8 @@
 export interface MemoryItem {
-  id: string
+  id: string;
   isClicked: boolean;
   isPaired: boolean;
   pairedValue: number;
   element: JSX.Element | number;
+  position: number[];
 }

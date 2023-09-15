@@ -8,19 +8,10 @@ import { ButtonPrimary, ButtonSecondary } from "../Buttons";
 const EndGameSolo = () => {
   const moves = useMemoryGameStore((state) => state.moves);
   const stringTimer = useMemoryGameStore((state) => state.stringTimer);
-  const hideModal = useMemoryGameStore((state) => state.hideModal);
-  const returnToMainMenu = useMemoryGameStore(
-    (state) => state.returnToMainMenu
+  const onReturnToMainMenu = useMemoryGameStore(
+    (state) => state.onReturnToMainMenu
   );
-  const resetConfig = useMemoryGameStore((state) => state.resetConfig);
-  const resetTimer = useMemoryGameStore((state) => state.resetTimer);
-
-  const onBackToMainMenu = () => {
-    hideModal();
-    returnToMainMenu();
-    resetConfig();
-    resetTimer();
-  };
+  const onRestartGame = useMemoryGameStore((state) => state.onRestartGame);
 
   return (
     <CardLayout customClasses="flex flex-col gap-3 z-10">
@@ -34,8 +25,8 @@ const EndGameSolo = () => {
       <Box direction="row" title="Moves Taken">
         {moves} Moves
       </Box>
-      <ButtonPrimary text="Restart" />
-      <ButtonSecondary onClick={onBackToMainMenu} text="Back to Main Menu" />
+      <ButtonPrimary onClick={onRestartGame} text="Restart" />
+      <ButtonSecondary onClick={onReturnToMainMenu} text="Back to Main Menu" />
     </CardLayout>
   );
 };

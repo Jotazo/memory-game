@@ -5,9 +5,9 @@ import { MemoryBoard, GridSizes as TGridSizes } from "../types";
 import getRandomMemoryItems from "./getRandomMemoryItems";
 
 const getMemoryGame = (
-  gridSize: TGridSizes,
+  gridSize: TGridSizes
   // gameType: GameTheme Build fix
-): MemoryItem[][] => {
+): MemoryBoard => {
   const randomMemoryItems: MemoryItem[] = getRandomMemoryItems(gridSize);
   shuffleMemoryItems(randomMemoryItems);
 
@@ -33,7 +33,12 @@ const getMemoryBoard = (
   for (let i = 0; i < gridSizeNum; i++) {
     const auxArr = [];
     for (let j = 0; j < gridSizeNum; j++) {
-      auxArr.push(randomMemoryItems[auxIndex]);
+      const memoryItemWithPosition = getMemoryItemWithPosition(
+        randomMemoryItems[auxIndex],
+        i,
+        j
+      );
+      auxArr.push(memoryItemWithPosition);
       auxIndex++;
     }
     memoryGame.push([...auxArr]);
@@ -41,6 +46,17 @@ const getMemoryBoard = (
   }
 
   return memoryGame;
+};
+
+const getMemoryItemWithPosition = (
+  memoryItem: MemoryItem,
+  rowPos: number,
+  cellPos: number
+) => {
+  return {
+    ...memoryItem,
+    position: [rowPos, cellPos],
+  };
 };
 
 export default getMemoryGame;

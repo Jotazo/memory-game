@@ -1,29 +1,15 @@
-import CardLayout from "../../layouts/CardLayout";
 import { useMemoryGameStore } from "../../store/useMemoryGameStore";
+
+import CardLayout from "../../layouts/CardLayout";
+
 import { ButtonPrimary, ButtonSecondary } from "../Buttons";
 
 const Menu = () => {
-  const hideModal = useMemoryGameStore((state) => state.hideModal);
-  const startTimer = useMemoryGameStore((state) => state.startTimer);
-  const resetTimer = useMemoryGameStore((state) => state.resetTimer);
-  const resetConfig = useMemoryGameStore((state) => state.resetConfig);
-  const returnToMainMenu = useMemoryGameStore(
-    (state) => state.returnToMainMenu
+  const onResumeGame = useMemoryGameStore((state) => state.onResumeGame);
+  const onRestartGame = useMemoryGameStore((state) => state.onRestartGame);
+  const onReturnToMainMenu = useMemoryGameStore(
+    (state) => state.onReturnToMainMenu
   );
-
-  const onRestartGame = () => {};
-
-  const onResumeGame = () => {
-    hideModal();
-    startTimer();
-  };
-
-  const onReturnToMainMenu = () => {
-    hideModal();
-    returnToMainMenu();
-    resetConfig();
-    resetTimer();
-  };
 
   return (
     <CardLayout customClasses="z-10 flex flex-col gap-4">

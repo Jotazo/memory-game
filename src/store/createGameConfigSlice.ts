@@ -11,6 +11,7 @@ import {
 import { GameThemes, GridSizes, NumPlayers } from "../enums";
 
 const initialState = {
+  gameStarted: false,
   themeSelected: GameThemes.Numbers,
   playersSelected: NumPlayers.One,
   gridSelected: GridSizes.Small,
@@ -21,8 +22,51 @@ const createGameConfigSlice: StateCreator<
   [],
   [],
   GameConfigSlice
-> = (set) => ({
+> = (set, get) => ({
   ...initialState,
+  onStartNewGame() {
+    const numPlayers = Number(get().playersSelected);
+    get().getNewMemoryGame();
+    if (numPlayers === 1) {
+      // Solo Game
+      get().startSoloGame();
+    } else {
+      // Multi Game
+    }
+    set({ gameStarted: true });
+  },
+  onRestartGame() {
+    const numPlayers = Number(get().playersSelected);
+    if (numPlayers === 1) {
+      // Solo Game
+      get().resetSoloGame();
+    } else {
+      // Multi Game
+    }
+    get().onStartNewGame();
+    get().hideModal();
+  },
+  onResumeGame() {
+    const numPlayers = Number(get().playersSelected);
+    if (numPlayers === 1) {
+      // Solo Game
+      get().resumeSoloGame();
+    } else {
+      // Multi Game
+    }
+    get().hideModal();
+  },
+  onReturnToMainMenu() {
+    const numPlayers = Number(get().playersSelected);
+    if (numPlayers === 1) {
+      // Solo Game
+      get().returnToMainMenuSolo();
+    } else {
+      // Multi Game
+    }
+    get().resetConfig();
+    get().hideModal();
+  },
   handleTheme(e) {
     set({ themeSelected: e.currentTarget.value as GameTheme });
   },
