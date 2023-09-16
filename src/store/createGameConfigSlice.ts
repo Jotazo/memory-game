@@ -38,33 +38,18 @@ const createGameConfigSlice: StateCreator<
   },
   onRestartGame() {
     const numPlayers = Number(get().playersSelected);
-    if (numPlayers === 1) {
-      // Solo Game
-      get().resetSoloGame();
-    } else {
-      // Multi Game
-    }
+    numPlayers === 1 && get().resetSoloGame();
     get().onStartNewGame();
     get().hideModal();
   },
   onResumeGame() {
     const numPlayers = Number(get().playersSelected);
-    if (numPlayers === 1) {
-      // Solo Game
-      get().resumeSoloGame();
-    } else {
-      // Multi Game
-    }
+    numPlayers === 1 && get().resumeSoloGame();
     get().hideModal();
   },
   onReturnToMainMenu() {
     const numPlayers = Number(get().playersSelected);
-    if (numPlayers === 1) {
-      // Solo Game
-      get().returnToMainMenuSolo();
-    } else {
-      // Multi Game
-    }
+    numPlayers === 1 && get().returnToMainMenuSolo();
     get().resetConfig();
     get().hideModal();
   },

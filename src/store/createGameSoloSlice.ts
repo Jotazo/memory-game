@@ -1,6 +1,10 @@
 import { StateCreator } from "zustand";
 
 import { GameSoloSlice, StoreSlices } from "../interfaces/Store";
+import { MemoryBoard } from "../types";
+
+import { Modals } from "../enums";
+import { isGameFinish } from "../helpers";
 
 const initialState = {
   moves: 0,
@@ -61,6 +65,13 @@ const createGameSoloSlice: StateCreator<StoreSlices, [], [], GameSoloSlice> = (
     resetTimer() {
       const { timer, timerId, stringTimer } = initialState;
       set({ timer, timerId, stringTimer });
+    },
+    handleSoloClickItem(updatedBoard: MemoryBoard) {
+      if (isGameFinish(updatedBoard)) {
+        get().stopTimer();
+        get().showModal(Modals.GameSolo);
+      }
+      set({ moves: get().moves + 1 });
     },
   };
 };

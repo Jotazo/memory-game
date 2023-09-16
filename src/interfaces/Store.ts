@@ -47,11 +47,19 @@ export interface GameSoloSlice {
   stopTimer: () => void;
   setStringTimer: () => void;
   resetTimer: () => void;
+
+  handleSoloClickItem: (updatedBoard: MemoryBoard) => void;
 }
 
 export interface GameMultiSlice {
   players: Player[];
   addPlayers: () => void;
+  handleMultiClickItem: (updatedBoard: MemoryBoard, isPair: boolean) => void;
+  updatePlayers: (
+    player: Player,
+    actualPlayer: Player,
+    isPair: boolean
+  ) => Player;
 }
 
 export interface ShowModalsSlice {

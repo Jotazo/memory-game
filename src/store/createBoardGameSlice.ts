@@ -3,8 +3,9 @@ import { StateCreator } from "zustand";
 import { BoardGameSlice, StoreSlices } from "../interfaces/Store";
 import { MemoryItem } from "../interfaces/MemoryItem";
 
-import { getMemoryGame, handleItemsMatched, isGameFinish } from "../helpers";
-import { Modals } from "../enums";
+import { NumPlayers } from "../enums";
+
+import { getMemoryGame, handleItemsMatched } from "../helpers";
 
 const initialState = {
   board: [],
@@ -21,7 +22,10 @@ const createBoardGameSlice: StateCreator<
   return {
     ...initialState,
     getNewMemoryGame() {
-      set({ ...initialState, board: getMemoryGame(get().gridSelected, get().themeSelected) });
+      set({
+        ...initialState,
+        board: getMemoryGame(get().gridSelected, get().themeSelected),
+      });
     },
     onItemClicked(itemClicked) {
       const itemsClicked = get().itemsClicked.length;
@@ -44,15 +48,16 @@ const createBoardGameSlice: StateCreator<
           const [itemOne, itemTwo] = itemsClickedUpdated;
           const isPair = itemOne.pairedValue === itemTwo.pairedValue;
           handleItemsMatched(updatedBoard, itemsClickedUpdated, isPair);
-          if (isGameFinish(updatedBoard)) {
-            get().stopTimer();
-            get().showModal(Modals.GameSolo);
-          }
+
+          const isSoloGame = get().playersSelected === NumPlayers.One;
+
+          if (isSoloGame) get().handleSoloClickItem(updatedBoard);
+          else get().handleMultiClickItem(updatedBoard, isPair);
+
           set({
             board: updatedBoard,
             itemsClicked: [],
             pairHandled: true,
-            moves: get().moves + 1,
           });
         }, 500);
       }
