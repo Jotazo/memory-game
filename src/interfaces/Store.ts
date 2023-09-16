@@ -60,6 +60,7 @@ export interface GameMultiSlice {
     actualPlayer: Player,
     isPair: boolean
   ) => Player;
+  handleWinners: () => void;
 }
 
 export interface ShowModalsSlice {

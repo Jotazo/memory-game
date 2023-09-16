@@ -8,6 +8,7 @@ const generatePlayer = (value: null, index: number) => {
     pairs: 0,
     numPlayer: index + 1,
     isMyTurn: index === 0,
+    isWinner: false,
   };
 };
 export default getPlayers;

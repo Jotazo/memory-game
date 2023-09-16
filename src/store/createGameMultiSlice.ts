@@ -31,12 +31,14 @@ const createGameMultiSlice: StateCreator<
       );
       set({ players: updatedPlayers });
       if (isGameFinish(updatedBoard)) {
+        get().handleWinners();
         get().showModal(Modals.GameMulti);
       }
     },
     updatePlayers(player: Player, actualPlayer: Player, isPair: boolean) {
       const isActualPlayer = player.id === actualPlayer.id;
-      const isLastPlayer = actualPlayer.numPlayer === Number(get().playersSelected);
+      const isLastPlayer =
+        actualPlayer.numPlayer === Number(get().playersSelected);
       return isActualPlayer
         ? {
             ...actualPlayer,
@@ -51,6 +53,19 @@ const createGameMultiSlice: StateCreator<
               ? player.numPlayer === 1
               : actualPlayer!.numPlayer + 1 === player.numPlayer,
           };
+    },
+    handleWinners() {
+      const maxPairs = get().players.reduce((acc, player) => {
+        if (player.pairs > acc) acc = player.pairs;
+        return acc;
+      }, 0);
+      const updatedWinnerPlayers = get().players.map((player) => {
+        return {
+          ...player,
+          isWinner: player.pairs === maxPairs,
+        };
+      });
+      set({ players: updatedWinnerPlayers });
     },
   };
 };

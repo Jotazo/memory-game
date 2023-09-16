@@ -8,9 +8,10 @@ import { Modals } from "./enums";
 
 import { MainScreen, GameScreen, OnlyMobile } from "./pages";
 
-import EndGameSolo from "./components/Modals/EndGameSolo";
 import Modal from "./components/Modal";
 import Menu from "./components/Modals/Menu";
+import EndGameSolo from "./components/Modals/EndGameSolo";
+import EndGameMulti from "./components/Modals/EndGameMulti";
 
 function App() {
   const isMobile = useMobile();
@@ -35,7 +36,7 @@ function App() {
                 <EndGameSolo key={Modals.GameSolo} />
               )}
               {modalToShow === Modals.GameMulti && (
-                <span>UNDER CONSTRUCTION</span>
+                <EndGameMulti key={Modals.GameMulti} />
               )}
             </Modal>
           )}
