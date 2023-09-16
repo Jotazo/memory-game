@@ -4,6 +4,7 @@ const getPlayers = (numPlayers: number) => {
 
 const generatePlayer = (value: null, index: number) => {
   return {
+    id: crypto.randomUUID(),
     pairs: 0,
     numPlayer: index + 1,
     isMyTurn: index === 0,
