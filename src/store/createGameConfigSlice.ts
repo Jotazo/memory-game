@@ -32,6 +32,7 @@ const createGameConfigSlice: StateCreator<
       get().startSoloGame();
     } else {
       // Multi Game
+      get().addPlayers();
     }
     set({ gameStarted: true });
   },

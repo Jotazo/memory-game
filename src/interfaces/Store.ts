@@ -7,6 +7,7 @@ import {
 } from "../types";
 
 import { MemoryItem } from "./MemoryItem";
+import { Player } from "./Player";
 
 export interface BoardGameSlice {
   board: MemoryBoard;
@@ -48,6 +49,11 @@ export interface GameSoloSlice {
   resetTimer: () => void;
 }
 
+export interface GameMultiSlice {
+  players: Player[];
+  addPlayers: () => void;
+}
+
 export interface ShowModalsSlice {
   modalToShow: Modals;
   showModal: (modal: Modals) => void;
@@ -56,5 +62,6 @@ export interface ShowModalsSlice {
 
 export type StoreSlices = GameConfigSlice &
   GameSoloSlice &
+  GameMultiSlice &
   ShowModalsSlice &
   BoardGameSlice;
