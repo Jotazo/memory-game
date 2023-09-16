@@ -2,7 +2,7 @@ const getPlayers = (numPlayers: number) => {
   return new Array(numPlayers).fill(null).map(generatePlayer);
 };
 
-const generatePlayer = (value: null, index: number) => {
+const generatePlayer = (_: null, index: number) => {
   return {
     id: crypto.randomUUID(),
     pairs: 0,
