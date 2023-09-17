@@ -1,8 +1,10 @@
-const GeminiIcon = () => {
+import { SVGProps } from "../../interfaces/SVGProps";
+
+const GeminiIcon: React.FC<SVGProps> = ({ customClasses }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-zodiac-gemini md:w-[99px] md:h-[99px]"
+      className={`icon icon-tabler icon-tabler-zodiac-gemini md:w-[99px] ${customClasses}`}
       width="58"
       height="58"
       viewBox="0 0 24 24"

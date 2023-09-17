@@ -17,23 +17,25 @@ import SkullIcon from "./SkullIcon";
 import TruckIcon from "./TruckIcon";
 import WindIcon from "./WindIcon";
 
+import withCustomClasses from "./withCustomClasses";
+
 export default [
-  <AmbulanceIcon />,
-  <ApiIcon />,
-  <BabyCarriageIcon />,
-  <BallIcon />,
-  <BetaIcon />,
-  <BluetoothIcon />,
-  <DogIcon />,
-  <EggsIcon />,
-  <GeminiIcon />,
-  <HandRockIcon />,
-  <HTMLIcon />,
-  <LetterJIcon />,
-  <LibraIcon />,
-  <PillIcon />,
-  <PokerCardIcon />,
-  <SkullIcon />,
-  <TruckIcon />,
-  <WindIcon />,
+  withCustomClasses(BetaIcon),
+  withCustomClasses(AmbulanceIcon),
+  withCustomClasses(ApiIcon),
+  withCustomClasses(BabyCarriageIcon),
+  withCustomClasses(BallIcon),
+  withCustomClasses(BluetoothIcon),
+  withCustomClasses(DogIcon),
+  withCustomClasses(EggsIcon),
+  withCustomClasses(GeminiIcon),
+  withCustomClasses(HandRockIcon),
+  withCustomClasses(HTMLIcon),
+  withCustomClasses(LetterJIcon),
+  withCustomClasses(LibraIcon),
+  withCustomClasses(PillIcon),
+  withCustomClasses(PokerCardIcon),
+  withCustomClasses(SkullIcon),
+  withCustomClasses(TruckIcon),
+  withCustomClasses(WindIcon),
 ];
