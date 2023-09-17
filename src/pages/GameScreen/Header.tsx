@@ -7,6 +7,10 @@ import { ButtonPrimary, ButtonSecondary } from "../../components/Buttons";
 const Header = () => {
   const showModal = useMemoryGameStore((state) => state.showModal);
   const stopTimer = useMemoryGameStore((state) => state.stopTimer);
+  const onReturnToMainMenu = useMemoryGameStore(
+    (state) => state.onReturnToMainMenu
+  );
+  const onRestartGame = useMemoryGameStore((state) => state.onRestartGame);
 
   const onPausedGame = () => {
     stopTimer();
@@ -23,8 +27,8 @@ const Header = () => {
         classStyles="ml-auto w-fit md:hidden"
       />
       <div className="hidden ml-auto md:flex gap-4">
-        <ButtonPrimary onClick={() => {}} fit text="Restart" />
-        <ButtonSecondary onClick={() => {}} text="Back to Menu" />
+        <ButtonPrimary onClick={onRestartGame} fit text="Restart" />
+        <ButtonSecondary onClick={onReturnToMainMenu} text="Back to Menu" />
       </div>
     </header>
   );

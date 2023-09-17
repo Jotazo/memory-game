@@ -9,7 +9,7 @@ const CardLayout = ({
 }) => {
   return (
     <div
-      className={`bg-softWhite p-6 md:p-12 rounded-xl w-[90%] md:max-w-xl ${customClasses}`}
+      className={`bg-softWhite p-6 md:p-12 md:py-16 rounded-xl w-[90%] md:max-w-2xl ${customClasses}`}
     >
       {children}
     </div>

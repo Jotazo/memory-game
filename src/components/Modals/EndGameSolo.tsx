@@ -14,19 +14,29 @@ const EndGameSolo = () => {
   const onRestartGame = useMemoryGameStore((state) => state.onRestartGame);
 
   return (
-    <CardLayout customClasses="flex flex-col gap-3 z-10">
-      <h3 className="text-center">You did it!</h3>
-      <p className="text-center text-sm text-shadowBlue">
-        Game over! Here’s how you got on…
-      </p>
-      <Box direction="row" title="Time Elapsed">
-        {stringTimer}
-      </Box>
-      <Box direction="row" title="Moves Taken">
-        {moves} Moves
-      </Box>
-      <ButtonPrimary onClick={onRestartGame} text="Restart" />
-      <ButtonSecondary onClick={onReturnToMainMenu} text="Back to Main Menu" />
+    <CardLayout customClasses="flex flex-col gap-6 md:gap-8 z-10">
+      <header className="flex flex-col gap-4">
+        <h3 className="text-center md:text-5xl">You did it!</h3>
+        <p className="text-center text-sm md:text-lg text-shadowBlue">
+          Game over! Here’s how you got on…
+        </p>
+      </header>
+      <section className="flex flex-col gap-2 md:gap-4">
+        <Box direction="row" title="Time Elapsed">
+          {stringTimer}
+        </Box>
+        <Box direction="row" title="Moves Taken">
+          {moves} Moves
+        </Box>
+      </section>
+      <section className="flex flex-col gap-2 md:gap-4 md:flex-row">
+        <ButtonPrimary onClick={onRestartGame} text="Restart" />
+        <ButtonSecondary
+        
+          onClick={onReturnToMainMenu}
+          text="Back to Menu"
+        />
+      </section>
     </CardLayout>
   );
 };

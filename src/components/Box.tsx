@@ -15,10 +15,10 @@ const Box = ({
 
   return (
     <article
-      className={`${bgColor} py-2 flex flex-${direction} justify-between items-center px-4 rounded-md`}
+      className={`${bgColor} py-2 flex flex-${direction} justify-between items-center px-4 md:p-6 rounded-md`}
     >
-      <p className={`text-center text-sm ${titleTextColor}`}>{title}</p>
-      <p className={`text-center text-xl ${childrenTextColor}`}>{children}</p>
+      <p className={`text-center text-sm md:text-lg ${titleTextColor}`}>{title}</p>
+      <p className={`text-center text-xl md:text-[2rem] ${childrenTextColor}`}>{children}</p>
     </article>
   );
 };
