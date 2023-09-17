@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className={`${
         fit ? "w-fit" : "w-full"
-      } transition text-lg sm:text-xl md:text-2xl px-7 py-[10px] rounded-full tracking-wide ${classStyles}`}
+      } transition text-lg md:text-2xl lg:text-xl px-7 py-[10px] rounded-full tracking-wide ${classStyles}`}
       {...props}
     >
       {text}
