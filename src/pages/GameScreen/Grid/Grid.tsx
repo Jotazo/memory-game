@@ -22,7 +22,7 @@ const Grid = () => {
 
   return (
     <main
-      className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl md:gap-4`}
+      className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl md:gap-4 lg:gap-1 lg:gap-x-0`}
     >
       {memoryGame.map((row) => {
         return row.map((item) => {
@@ -39,8 +39,8 @@ const Grid = () => {
                   showChildren ? "opacity-1" : "opacity-0"
                 } text-softWhite ${
                   sizeSelected === GridSizes.Small
-                    ? "text-[42px] md:text-[75px]"
-                    : "text-[24px] md:text-[45px]"
+                    ? "text-[42px] md:text-[75px] lg:text-[62px]"
+                    : "text-[24px] md:text-[45px] lg:text-[40px]"
                 } flex justify-center items-center`}
               >
                 {typeof item.element === "number" ? (

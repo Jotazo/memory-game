@@ -34,14 +34,14 @@ const MultiFooter = () => {
 
   return (
     <footer
-      className={`grid ${gridCols} gap-4 md:self-center md:max-w-2xl md:w-full`}
+      className={`grid ${gridCols} gap-4 md:self-center md:w-full lg:w-4/5`}
     >
       {players.map((player) => (
         <CardFooter
           isSelected={player.isMyTurn}
           key={player.id}
           title={getCardFooterTitle(player)}
-          customClasses="md:items-start md:gap-2"
+          customClasses="md:items-start md:gap-2 lg:flex-row lg:justify-between lg:items-center"
         >
           {player.pairs}
         </CardFooter>
