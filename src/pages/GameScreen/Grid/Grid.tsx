@@ -22,7 +22,7 @@ const Grid = () => {
     sizeSelected === GridSizes.Small ? "grid-cols-4" : "grid-cols-6"; // Fix 6x6 grid
 
   return (
-    <main className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl`}>
+    <main className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl md:gap-4`}>
       {memoryGame.map((row) => {
         return row.map((item) => {
           const showChildren = item.isClicked || item.isPaired;
@@ -38,7 +38,7 @@ const Grid = () => {
                   showChildren ? "opacity-1" : "opacity-0"
                 } text-softWhite ${
                   sizeSelected === GridSizes.Small
-                    ? "text-[42px] md:text-[56px]"
+                    ? "text-[42px] md:text-[75px]"
                     : "text-[24px]"
                 } flex justify-center items-center`}
               >

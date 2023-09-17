@@ -37,7 +37,7 @@ const GridItem: React.FC<Props> = ({
   return (
     <span
       onClick={handleClickItem}
-      className={`${circleBg} transition duration-300 text-center rounded-full ${customPadding}`}
+      className={`${circleBg} transition duration-300 text-center rounded-full md:min-h-[128px] ${customPadding}`}
     >
       {children}
     </span>
