@@ -26,7 +26,7 @@ const MainMenu = () => {
     <div className="flex flex-col gap-6">
       <section className="flex flex-col gap-2">
         <TitleSection text="Select Theme" />
-        <div className="grid grid-cols-2 gap-x-3">
+        <div className="grid grid-cols-2 gap-x-3 md:gap-x-6">
           <ButtonMenuSelection
             value={GameThemes.Numbers}
             onClick={handleTheme}
@@ -43,7 +43,7 @@ const MainMenu = () => {
       </section>
       <section className="flex flex-col gap-2">
         <TitleSection text="Number of Players" />
-        <div className="grid grid-cols-4 gap-x-3">
+        <div className="grid grid-cols-4 gap-x-3 md:gap-x-6">
           {NUM_PLAYERS_BUTTONS.map((numButton) => (
             <ButtonMenuSelection
               key={numButton}
@@ -57,7 +57,7 @@ const MainMenu = () => {
       </section>
       <section className="flex flex-col gap-2">
         <TitleSection text="Grid Size" />
-        <div className="grid grid-cols-2 gap-x-3">
+        <div className="grid grid-cols-2 gap-x-3 md:gap-x-6">
           <ButtonMenuSelection
             value={GridSizes.Small}
             onClick={handleGrid}
