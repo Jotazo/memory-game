@@ -4,7 +4,7 @@ const DogIcon: React.FC<SVGProps> = ({ customClasses }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`icon icon-tabler icon-tabler-dog md:w-[99px] ${customClasses}`}
+      className={`icon icon-tabler icon-tabler-dog ${customClasses}`}
       width="58"
       height="58"
       viewBox="0 0 24 24"
