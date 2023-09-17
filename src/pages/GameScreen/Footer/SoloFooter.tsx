@@ -6,7 +6,7 @@ import Timer from "../Timer";
 const SoloFooter = () => {
   const moves = useMemoryGameStore((state) => state.moves);
   return (
-    <footer className="grid grid-cols-2 gap-4">
+    <footer className="grid grid-cols-2 gap-4 md:self-center md:max-w-xl md:w-full">
       <CardFooter title="Time">
         <Timer />
       </CardFooter>

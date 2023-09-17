@@ -12,7 +12,9 @@ const CardFooter = ({
   const textColorChildren = isSelected ? "text-softWhite" : "text-charcoal";
 
   return (
-    <article className={`${bgStyles} py-2 rounded-lg relative`}>
+    <article
+      className={`${bgStyles} py-2 rounded-lg relative md:flex md:justify-between md:items-center md:p-6 `}
+    >
       {isSelected && (
         <div
           style={{
@@ -28,8 +30,8 @@ const CardFooter = ({
           }}
         ></div>
       )}
-      <p className={`text-center text-sm ${textColorTitle}`}>{title}</p>
-      <p className={`text-center text-2xl ${textColorChildren}`}>{children}</p>
+      <p className={`text-center text-sm md:text-lg ${textColorTitle}`}>{title}</p>
+      <p className={`text-center text-2xl md:text-[2rem] ${textColorChildren}`}>{children}</p>
     </article>
   );
 };

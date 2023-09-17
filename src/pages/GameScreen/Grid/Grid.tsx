@@ -22,7 +22,7 @@ const Grid = () => {
     sizeSelected === GridSizes.Small ? "grid-cols-4" : "grid-cols-6"; // Fix 6x6 grid
 
   return (
-    <main className={`grid ${gridCols} gap-1 w-full max-w-[440px]`}>
+    <main className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl`}>
       {memoryGame.map((row) => {
         return row.map((item) => {
           const showChildren = item.isClicked || item.isPaired;
