@@ -2,10 +2,12 @@ const CardFooter = ({
   children,
   title,
   isSelected = false,
+  customClasses = "",
 }: {
   children: React.ReactNode;
   title: string;
   isSelected?: boolean;
+  customClasses?: string;
 }) => {
   const bgStyles = isSelected ? "bg-[#FDA214]" : "bg-[#DFE7EC]";
   const textColorTitle = isSelected ? "text-softWhite" : "text-shadowBlue";
@@ -13,7 +15,7 @@ const CardFooter = ({
 
   return (
     <article
-      className={`${bgStyles} py-2 rounded-lg relative md:flex md:justify-between md:items-center md:p-6 `}
+      className={`${bgStyles} py-2 rounded-lg relative flex flex-col items-center md:p-6 ${customClasses}`}
     >
       {isSelected && (
         <div
@@ -30,8 +32,10 @@ const CardFooter = ({
           }}
         ></div>
       )}
-      <p className={`text-center text-sm md:text-lg ${textColorTitle}`}>{title}</p>
-      <p className={`text-center text-2xl md:text-[2rem] ${textColorChildren}`}>{children}</p>
+      <p className={`text-sm md:text-lg ${textColorTitle}`}>{title}</p>
+      <p className={`text-2xl md:text-[2rem] ${textColorChildren}`}>
+        {children}
+      </p>
     </article>
   );
 };

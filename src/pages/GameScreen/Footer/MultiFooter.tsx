@@ -1,8 +1,15 @@
+import useScreenWidth from "../../../hooks/useScreenWidth";
+import { Player } from "../../../interfaces/Player";
 import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
+
 import CardFooter from "./CardFooter";
+
+const MIN_TABLET_WIDTH = 768;
 
 const MultiFooter = () => {
   const players = useMemoryGameStore((state) => state.players);
+
+  const displayWidth = useScreenWidth();
 
   const getPlayersGrid = (numPlayer: number) => {
     switch (numPlayer) {
@@ -19,13 +26,22 @@ const MultiFooter = () => {
 
   const gridCols = getPlayersGrid(players.length);
 
+  const getCardFooterTitle = (player: Player) => {
+    const isMobile = displayWidth < MIN_TABLET_WIDTH;
+    const { numPlayer } = player;
+    return isMobile ? `P${numPlayer}` : `Player ${numPlayer}`;
+  };
+
   return (
-    <footer className={`grid ${gridCols} gap-4`}>
+    <footer
+      className={`grid ${gridCols} gap-4 md:self-center md:max-w-2xl md:w-full`}
+    >
       {players.map((player) => (
         <CardFooter
           isSelected={player.isMyTurn}
           key={player.id}
-          title={`P${player.numPlayer}`}
+          title={getCardFooterTitle(player)}
+          customClasses="md:items-start md:gap-2"
         >
           {player.pairs}
         </CardFooter>
