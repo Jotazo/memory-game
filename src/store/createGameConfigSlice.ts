@@ -50,7 +50,7 @@ const createGameConfigSlice: StateCreator<
   onReturnToMainMenu() {
     const numPlayers = Number(get().playersSelected);
     numPlayers === 1 && get().resetSoloGame();
-    get().resetConfig();
+    set({ gameStarted: false });
     get().hideModal();
   },
   handleTheme(e) {
@@ -61,9 +61,6 @@ const createGameConfigSlice: StateCreator<
   },
   handleGrid(e) {
     set({ gridSelected: e.currentTarget.value as TGridSizes });
-  },
-  resetConfig() {
-    set(initialState);
   },
 });
 
