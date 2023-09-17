@@ -37,8 +37,6 @@ export interface GameSoloSlice {
   moves: number;
   startSoloGame: () => void;
   resetSoloGame: () => void;
-  resumeSoloGame: () => void;
-  returnToMainMenuSolo: () => void;
 
   timer: { seconds: number; minutes: number };
   timerId: number | null;

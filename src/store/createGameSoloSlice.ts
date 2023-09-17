@@ -28,14 +28,6 @@ const createGameSoloSlice: StateCreator<StoreSlices, [], [], GameSoloSlice> = (
       get().stopTimer();
       get().resetTimer();
     },
-    resumeSoloGame() {
-      get().startTimer();
-    },
-    returnToMainMenuSolo() {
-      set(initialState);
-      get().stopTimer();
-      get().resetTimer();
-    },
     startTimer() {
       const timerInterval = setInterval(() => {
         const { seconds, minutes } = get().timer;

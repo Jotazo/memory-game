@@ -44,12 +44,12 @@ const createGameConfigSlice: StateCreator<
   },
   onResumeGame() {
     const numPlayers = Number(get().playersSelected);
-    numPlayers === 1 && get().resumeSoloGame();
+    numPlayers === 1 && get().startSoloGame();
     get().hideModal();
   },
   onReturnToMainMenu() {
     const numPlayers = Number(get().playersSelected);
-    numPlayers === 1 && get().returnToMainMenuSolo();
+    numPlayers === 1 && get().resetSoloGame();
     get().resetConfig();
     get().hideModal();
   },
