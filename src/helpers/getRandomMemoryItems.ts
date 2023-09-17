@@ -10,8 +10,6 @@ import {
   RANDOM_NUMS_LIMIT,
 } from "../constants";
 
-import ICONS from "../components/icons/iconsArr";
-
 const GRID_LIMIT = {
   [GridSizes.Small]: GRID_SMALL,
   [GridSizes.Big]: GRID_BIG,
@@ -31,11 +29,6 @@ const getRandomMemoryItems = (gridSize: TGridSizes, gameType: GameTheme) => {
     const [memoryItemOne, memoryItemTwo]: MemoryItem[] =
       getMemoryItems(randomValue);
     randomPairedValues.push(randomValue);
-
-    if (gameType === GameThemes.Icons) {
-      memoryItemOne.element = ICONS[i];
-      memoryItemTwo.element = ICONS[i];
-    }
 
     randomMemoryItems.push(memoryItemOne);
     randomMemoryItems.push(memoryItemTwo);
@@ -61,7 +54,6 @@ const getMemoryItems = (randomValue: number): MemoryItem[] => [
 
 const getMemoryItem = (randomValue: number): MemoryItem => ({
   id: crypto.randomUUID(),
-  element: randomValue,
   isClicked: false,
   isPaired: false,
   pairedValue: randomValue,
