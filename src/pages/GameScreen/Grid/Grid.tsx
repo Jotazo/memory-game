@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import { useMemoryGameStore } from "../../../store/useMemoryGameStore";
 
-// import { GameThemes, GridSizes } from "../../../enums"; // Build fix
 import { GridSizes } from "../../../enums";
 
 import GridItem from "./GridItem";
 
 const Grid = () => {
   const sizeSelected = useMemoryGameStore((state) => state.gridSelected);
-  const onItemClicked = useMemoryGameStore((state) => state.onItemClicked);
   const memoryGame = useMemoryGameStore((state) => state.board);
   const pairHandled = useMemoryGameStore((state) => state.pairHandled);
+  const onItemClicked = useMemoryGameStore((state) => state.onItemClicked);
   const refreshBoard = useMemoryGameStore((state) => state.refreshBoard);
 
   useEffect(() => {
@@ -22,7 +21,9 @@ const Grid = () => {
     sizeSelected === GridSizes.Small ? "grid-cols-4" : "grid-cols-6"; // Fix 6x6 grid
 
   return (
-    <main className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl md:gap-4`}>
+    <main
+      className={`grid ${gridCols} gap-1 w-full max-w-[440px] md:self-center md:max-w-xl md:gap-4`}
+    >
       {memoryGame.map((row) => {
         return row.map((item) => {
           const showChildren = item.isClicked || item.isPaired;
@@ -39,10 +40,14 @@ const Grid = () => {
                 } text-softWhite ${
                   sizeSelected === GridSizes.Small
                     ? "text-[42px] md:text-[75px]"
-                    : "text-[24px]"
+                    : "text-[24px] md:text-[45px]"
                 } flex justify-center items-center`}
               >
-                {item.element}
+                {typeof item.element === "number" ? (
+                  item.element
+                ) : (
+                  <item.element />
+                )}
               </span>
             </GridItem>
           );

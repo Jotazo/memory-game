@@ -34,10 +34,13 @@ const GridItem: React.FC<Props> = ({
     ? "bg-lightPeriwinkle"
     : "bg-charcoal";
 
+  const mdMinHeight =
+    gridSelected === GridSizes.Small ? "md:min-h-[128px]" : "md:min-h-[86px]";
+
   return (
     <span
       onClick={handleClickItem}
-      className={`${circleBg} transition duration-300 text-center rounded-full md:min-h-[128px] ${customPadding}`}
+      className={`${circleBg} transition duration-300 text-center rounded-full ${mdMinHeight} ${customPadding}`}
     >
       {children}
     </span>
