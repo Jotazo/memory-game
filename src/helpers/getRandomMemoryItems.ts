@@ -1,21 +1,32 @@
-import { GameThemes, GridSizes } from "../enums";
-import { GameTheme, GridSizes as TGridSizes } from "../types";
 import { MemoryItem } from "../interfaces/MemoryItem";
+import { GameTheme, GridSizes as TGridSizes } from "../types";
+
+import { GameThemes, GridSizes } from "../enums";
+
+import {
+  GRID_BIG,
+  GRID_SMALL,
+  NUM_ICONS,
+  RANDOM_NUMS_LIMIT,
+} from "../constants";
 
 import ICONS from "../components/icons/iconsArr";
 
 const GRID_LIMIT = {
-  [GridSizes.Small]: 8,
-  [GridSizes.Big]: 18,
+  [GridSizes.Small]: GRID_SMALL,
+  [GridSizes.Big]: GRID_BIG,
 };
 
-const RANDOM_LIMIT = 20;
+const RANDOM_LIMIT = {
+  [GameThemes.Numbers]: RANDOM_NUMS_LIMIT,
+  [GameThemes.Icons]: NUM_ICONS,
+};
 
 const getRandomMemoryItems = (gridSize: TGridSizes, gameType: GameTheme) => {
   const randomPairedValues: number[] = [];
   const randomMemoryItems: MemoryItem[] = [];
   for (let i = 0; i < GRID_LIMIT[gridSize]; i++) {
-    const randomValue = getRandomPairedValue(randomPairedValues);
+    const randomValue = getRandomPairedValue(randomPairedValues, gameType);
 
     const [memoryItemOne, memoryItemTwo]: MemoryItem[] =
       getMemoryItems(randomValue);
@@ -33,10 +44,13 @@ const getRandomMemoryItems = (gridSize: TGridSizes, gameType: GameTheme) => {
   return randomMemoryItems;
 };
 
-const getRandomPairedValue = (actualPairedValues: number[]): number => {
-  const randomValue = Math.floor(Math.random() * RANDOM_LIMIT);
+const getRandomPairedValue = (
+  actualPairedValues: number[],
+  gameType: GameTheme
+): number => {
+  const randomValue = Math.floor(Math.random() * RANDOM_LIMIT[gameType]);
   if (actualPairedValues.includes(randomValue))
-    return getRandomPairedValue(actualPairedValues);
+    return getRandomPairedValue(actualPairedValues, gameType);
   return randomValue;
 };
 
