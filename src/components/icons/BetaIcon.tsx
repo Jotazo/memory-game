@@ -2,7 +2,7 @@ const BetaIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-beta"
+      className="icon icon-tabler icon-tabler-beta md:w-[99px] md:h-[99px]"
       width="58"
       height="58"
       viewBox="0 0 24 24"
